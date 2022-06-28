@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="@color/white"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -24,16 +24,8 @@
             <include layout="@layout/item_add"/>
             <include layout="@layout/item_info"/>
             <include layout="@layout/item_email" />
-            <Button
-                android:id="@+id/logoutbtn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:text="Log Out"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/black"
-                />
-            <include layout="@layout/blank"/>
+            <include layout="@layout/item_edit"/>
+            <include layout="@layout/item_logout"/>
             <include layout="@layout/blank"/>
 
         </LinearLayout>

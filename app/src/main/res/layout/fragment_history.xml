@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
-    tools:context=".ui.friends.HistoryFragment">
+    android:background="@drawable/background"
+    tools:context=".ui.history.HistoryFragment">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/text_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

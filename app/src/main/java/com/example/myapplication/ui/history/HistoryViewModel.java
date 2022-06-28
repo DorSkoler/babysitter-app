@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.friends;
+package com.example.myapplication.ui.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class HistoryViewModel extends ViewModel {
 
     public HistoryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is friends fragment");
+        mText.setValue("This is history fragment");
     }
 
     public LiveData<String> getText() {
