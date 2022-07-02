@@ -26,27 +26,45 @@
                 android:layout_marginTop="23dp"
                 android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="User Name:"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/username_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="hdhd"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:text="Type:"
                     android:gravity="center"
-                    android:text="The Rock"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/type_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="PID:362Hb458760"
-                    android:textColor="#5C5A5A"
-                    android:textSize="13sp"
-                    android:textStyle="normal" />
-
+                    android:paddingBottom="7dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

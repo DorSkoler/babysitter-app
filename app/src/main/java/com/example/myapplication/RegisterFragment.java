@@ -68,7 +68,7 @@ public class RegisterFragment extends Fragment {
         TextView returnbtn = view.findViewById(R.id.returntbtn);
         TextView email = view.findViewById(R.id.email_register);
         TextView password = view.findViewById(R.id.password_register);
-        TextView phone = view.findViewById(R.id.phone);
+        TextView phone = view.findViewById(R.id.phone_register);
         TextView user = view.findViewById(R.id.username_register);
 
         accept.setOnClickListener(new View.OnClickListener() {

@@ -19,18 +19,23 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseDatabase db;
+    private DatabaseReference mData;
+    private FirebaseUser currentUser;
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
 
@@ -48,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        mData = db.getReference().child("Users");
     }
 
     public void loginFunc(View view) {
@@ -63,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_LONG).show();
                             Navigation.findNavController(view).navigate(R.id.action_blankFragment_to_mainActivity2);
+                            finish();
                         } else {
                             Toast.makeText(MainActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
                         }
@@ -75,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
         String email = ((EditText) findViewById(R.id.email_register)).getText().toString().trim();
         String password = ((EditText) findViewById(R.id.password_register)).getText().toString().trim();
+        String phone = ((EditText) findViewById(R.id.phone_register)).getText().toString().trim();
+        String username = ((EditText) findViewById(R.id.username_register)).getText().toString().trim();
+        mData.push().get();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -82,8 +92,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainActivity.this, "Registered Successful", Toast.LENGTH_LONG).show();
-                            Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_blankFragment4);
-
+                            Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_mainActivity2);
+                            mAuth.signInWithEmailAndPassword(email, password);
+                            HashMap<String, String> userMap = new HashMap<>();
+                            userMap.put("full name", username);
+                            userMap.put("email", email);
+                            userMap.put("phone", phone);
+                            currentUser = mAuth.getCurrentUser();
+                            System.out.println(currentUser.getUid());
+                            mData.child(currentUser.getUid()).setValue(userMap);
+                            finish();
                         } else {
                             Toast.makeText(MainActivity.this, "Failed to register", Toast.LENGTH_LONG).show();
                         }

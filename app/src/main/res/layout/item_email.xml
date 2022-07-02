@@ -20,7 +20,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:padding="2dp"
-                android:src="@drawable/ic_email"
+                android:src="@drawable/ic_email_light"
                 android:layout_marginStart="5dp"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
@@ -38,11 +38,10 @@
         </LinearLayout>
         <TextView
             android:id="@+id/email_profile"
-            android:text=""
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="40dp"
             android:layout_marginBottom="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

@@ -20,10 +20,10 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:padding="2dp"
-                android:src="@drawable/ic_phone"
+                android:src="@drawable/ic_phone_light"
                 android:layout_marginStart="5dp"
                 android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                android:layout_height="30dp" />
             <TextView
                 android:text="Mobile"
                 android:layout_marginStart="10dp"
@@ -37,11 +37,11 @@
 
         </LinearLayout>
         <TextView
-            android:text="+972 522465508"
+            android:id="@+id/phone_profile"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="40dp"
             android:layout_marginBottom="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

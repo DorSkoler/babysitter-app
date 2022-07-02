@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_blankFragment2_to_blankFragment4"
             app:destination="@id/blankFragment" />
+        <action
+            android:id="@+id/action_blankFragment2_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
     </fragment>
     <activity
         android:id="@+id/mainActivity2"

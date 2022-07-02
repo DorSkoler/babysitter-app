@@ -24,16 +24,9 @@
                 android:id="@+id/edit_profile_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Full Name"
+                android:hint="User Name"
                 android:textAlignment="center"
                 android:drawableStart="@drawable/ic_profile_dark"/>
-            <EditText
-                android:id="@+id/edit_profile_email"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Email"
-                android:textAlignment="center"
-                android:drawableStart="@drawable/ic_email"/>
             <EditText
                 android:id="@+id/edit_profile_city"
                 android:layout_width="match_parent"
@@ -50,6 +43,31 @@
                 android:textAlignment="center"
                 android:drawableStart="@drawable/ic_phone"
                 />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="User Type:"
+                />
+            <RadioGroup
+                android:id="@+id/radio_group_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Provide Service" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Looking For Service" />
+            </RadioGroup>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/save_profile_btn"
                 xmlns:android="http://schemas.android.com/apk/res/android"
