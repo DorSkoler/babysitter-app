@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                             Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_mainActivity2);
                             mAuth.signInWithEmailAndPassword(email, password);
                             HashMap<String, String> userMap = new HashMap<>();
-                            userMap.put("full name", username);
+                            userMap.put("username", username);
                             userMap.put("email", email);
                             userMap.put("phone", phone);
                             currentUser = mAuth.getCurrentUser();

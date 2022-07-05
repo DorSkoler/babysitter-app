@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
@@ -28,35 +28,34 @@
 
         <TextView
             android:id="@+id/username_card"
-            android:layout_width="127dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
+            android:layout_gravity="top|right"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Name"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/city_card"
-            android:layout_width="127dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|center"
+            android:layout_gravity="center|right"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:text="City"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/type_card"
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
+            android:layout_gravity="bottom|right"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="17dp"
-            android:text="type"
+            android:layout_marginEnd="20dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 

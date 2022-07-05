@@ -1,11 +1,24 @@
 package com.example.myapplication;
 
+
 public class User {
 
-    private String username, phone, city, type;
+    private String username, phone, city, type, email, image, help;
 
     public String getUsername() {
         return username;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getHelp() {
+        return help;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getPhone() {

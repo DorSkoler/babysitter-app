@@ -21,6 +21,7 @@
 
             <include layout="@layout/blank" />
             <include layout="@layout/item_image" />
+            <include layout="@layout/item_type"/>
             <include layout="@layout/item_add"/>
             <include layout="@layout/item_info"/>
             <include layout="@layout/item_email" />

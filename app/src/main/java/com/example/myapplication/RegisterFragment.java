@@ -91,6 +91,9 @@ public class RegisterFragment extends Fragment {
                 else if (phone.getText().toString().isEmpty()) {
                     Toast.makeText(mainActivity, "Insert phone number", Toast.LENGTH_LONG).show();
                 }
+                else if (phone.getText().toString().length() < 10) {
+                    Toast.makeText(mainActivity, "Insert correct phone number", Toast.LENGTH_LONG).show();
+                }
                 else if (user.getText().toString().isEmpty()) {
                     Toast.makeText(mainActivity, "Insert user", Toast.LENGTH_LONG).show();
                 }

@@ -44,6 +44,15 @@
                 android:drawableStart="@drawable/ic_phone"
                 />
 
+            <EditText
+                android:id="@+id/edit_profile_help"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Help Type"
+                android:textAlignment="center"
+                android:drawableStart="@drawable/ic_help_light"
+                />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -68,6 +77,17 @@
                     android:text="Looking For Service" />
             </RadioGroup>
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/edit_profile_pic"
+                android:layout_width="98dp"
+                android:layout_height="98dp"
+                android:layout_gravity="center"
+                android:elevation="15dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_profile_dark"
+                android:background="@drawable/background2"
+               />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/save_profile_btn"
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -85,6 +105,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Save"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/clear_profile_btn"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:card_view="http://schemas.android.com/tools"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="true"
+                card_view:cardCornerRAdius="5dp"
+                android:backgroundTint="@color/common_google_signin_btn_text_light">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear"
                     android:backgroundTint="@color/white"
                     android:textColor="@color/black"
                     android:layout_margin="5dp"
@@ -117,6 +162,7 @@
                     android:textSize="20dp"
                     />
             </androidx.cardview.widget.CardView>
+
             <include layout="@layout/blank"/>
 
         </LinearLayout>

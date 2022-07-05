@@ -2,6 +2,7 @@ package com.example.myapplication.ui.profile;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
 
@@ -59,9 +62,42 @@ public class ProfileFragment extends Fragment {
         TextView email = root.findViewById(R.id.email_profile);
         TextView phone = root.findViewById(R.id.phone_profile);
         TextView username = root.findViewById(R.id.username_profile);
+        TextView help = root.findViewById(R.id.help_profile);
         TextView type = root.findViewById(R.id.type_profile);
+        ImageView image = root.findViewById(R.id.profile_pic);
 
         email.setText(currentUser.getEmail());
+
+        DatabaseReference ref_help = mData.child(currentUser.getUid()).child("help");
+        ref_help.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String help_user = dataSnapshot.getValue(String.class);
+                help.setText(help_user);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        DatabaseReference ref_image = mData.child(currentUser.getUid()).child("image");
+        ref_image.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String image_user = dataSnapshot.getValue(String.class);
+                if (image_user != null)
+                    Picasso.get().load(image_user).into(image);
+                else
+                    image.setImageResource(R.drawable.ic_profile_dark);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         DatabaseReference ref_type = mData.child(currentUser.getUid()).child("type");
         ref_type.addValueEventListener(new ValueEventListener() {

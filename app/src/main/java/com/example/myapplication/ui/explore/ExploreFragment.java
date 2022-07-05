@@ -1,9 +1,11 @@
 package com.example.myapplication.ui.explore;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.User;
 import com.example.myapplication.databinding.FragmentExploreBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +38,11 @@ public class ExploreFragment extends Fragment {
     RecyclerView recyclerView;
     DatabaseReference database;
     MyAdapter myAdapter;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
     ArrayList<User> list;
+    EditText searchText;
+    CardView searchBtn;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +52,12 @@ public class ExploreFragment extends Fragment {
         binding = FragmentExploreBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+        searchText = (EditText) root.findViewById(R.id.search_text_explore);
+        searchBtn = (CardView) root.findViewById(R.id.search_explore_btn);
+
         recyclerView = root.findViewById(R.id.userList);
         database = FirebaseDatabase.getInstance().getReference("Users");
         recyclerView.setHasFixedSize(true);
@@ -52,7 +66,9 @@ public class ExploreFragment extends Fragment {
         recyclerView.setPadding(3,3,3,3);
 
         list = new ArrayList<>();
-        myAdapter = new MyAdapter(main,list);
+
+        MainActivity2 mainActivity = ( MainActivity2) getActivity();
+        myAdapter = new MyAdapter(main,list, mainActivity);
         recyclerView.setAdapter(myAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -62,7 +78,9 @@ public class ExploreFragment extends Fragment {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
                     User user = dataSnapshot.getValue(User.class);
-                    list.add(user);
+                    if (user.getType() != null)
+                        if (user.getType().toString().equals("Provide Service"))
+                            list.add(user);
 
                 }
                 myAdapter.notifyDataSetChanged();
@@ -74,6 +92,8 @@ public class ExploreFragment extends Fragment {
 
             }
         });
+
+
         return root;
     }
 

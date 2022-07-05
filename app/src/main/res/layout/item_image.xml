@@ -40,7 +40,6 @@
                         android:id="@+id/username_profile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="hdhd"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="20sp"
@@ -74,6 +73,7 @@
     </RelativeLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_pic"
         android:layout_width="98dp"
         android:layout_height="98dp"
         android:layout_centerHorizontal="true"
