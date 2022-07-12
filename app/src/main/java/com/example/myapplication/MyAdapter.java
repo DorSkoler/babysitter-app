@@ -101,11 +101,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             TextView newcontactpopup_email = (TextView) contactPopupView.findViewById(R.id.email_profile);
             TextView newcontactpopup_city = (TextView) contactPopupView.findViewById(R.id.adress_profile);
             TextView newcontactpopup_phone = (TextView) contactPopupView.findViewById(R.id.phone_profile);
+            TextView newcontactpopup_type = (TextView) contactPopupView.findViewById(R.id.help_profile);
             ImageView newcontactpopup_image = (ImageView) contactPopupView.findViewById(R.id.popup_profile_pic);
 
             newcontactpopup_fullname.setText(username.getText().toString());
             newcontactpopup_phone.setText(phone);
             newcontactpopup_email.setText(email);
+            newcontactpopup_type.setText(type.getText().toString());
             Log.i("email", "uri" + image);
             if (image != null)
                 Picasso.get().load(image).into(newcontactpopup_image);

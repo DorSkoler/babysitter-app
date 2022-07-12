@@ -55,8 +55,6 @@ public class ExploreFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        searchText = (EditText) root.findViewById(R.id.search_text_explore);
-        searchBtn = (CardView) root.findViewById(R.id.search_explore_btn);
 
         recyclerView = root.findViewById(R.id.userList);
         database = FirebaseDatabase.getInstance().getReference("Users");

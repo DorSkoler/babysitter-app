@@ -48,10 +48,13 @@
                 android:id="@+id/edit_profile_help"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Help Type"
+                android:hint="Type Of Service"
+                android:inputType="phone"
                 android:textAlignment="center"
                 android:drawableStart="@drawable/ic_help_light"
                 />
+
+
 
 
             <TextView
